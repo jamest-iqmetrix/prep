@@ -18,7 +18,14 @@ namespace code.utility.matching
 
     public IMatchA<ItemToMatch> equal_to_any(params Property[] values)
     {
-      throw new NotImplementedException();
+      IMatchA<ItemToMatch> current = new CriteriaMatch<ItemToMatch>(element => false);
+
+      foreach (var property in values)
+      {
+        current = current.or(equal_to(property));
+      }
+
+      return current;
     }
   }
 }
