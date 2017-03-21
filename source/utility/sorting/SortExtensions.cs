@@ -14,5 +14,12 @@ namespace code.utility.sorting
         return previous_result == 0 ? Sort<Item>.by(accessor, order)(a, b) : previous_result;
       };
     }
+
+    public static ICompareTwoItems<Item> then_by<Item, Property>(this ICompareTwoItems<Item> previous_comparer,
+      IGetTheValueOfAProperty<Item, Property> accessor)
+      where Property : IComparable<Property>
+    {
+      return then_by(previous_comparer, accessor, SortOrders.ascending);
+    }
   }
 }
