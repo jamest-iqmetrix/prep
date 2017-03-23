@@ -65,7 +65,6 @@ namespace code.utility.iteration
 
     public class reducing_a_set_of_items : spec.observe
     {
-
     }
   }
 }
